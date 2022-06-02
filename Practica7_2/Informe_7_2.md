@@ -87,4 +87,4 @@ En el loop(), s'inicialitza el loop de l'objecte audio, que conté el arxiu de m
 Finalment, tenim unes funcions que mostren la informació tècnica de l'arxiu .wav per la terminal.
 
 ## **VÍDEO DEL FUNCIONAMENT** ##
-[]()
+[https://drive.google.com/file/d/1YvFB61foYFR7mb0UM9SmmK2QemKPncMb/view?usp=sharing](https://drive.google.com/file/d/1YvFB61foYFR7mb0UM9SmmK2QemKPncMb/view?usp=sharing)
