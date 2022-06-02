@@ -139,4 +139,4 @@ Seguidament copiem aquest IP i el busquem desde un navegador i ens porta a la p√
 En el nostre cas, veiem dos botons ("ON") que corresponen a dos leds connectats a la ESP32. Si premem al ON, els leds s'encenen i seguidament veiem que els botons cambien a OFF per poder-los apagar.
 
 ## **VIDEO DE L'EXECUCI√ì** ###
-https://drive.google.com/file/d/1f9z6r5Sv0IWnDifxiik98YS10x5g9xix/view?usp=sharing
+[https://drive.google.com/file/d/1f9z6r5Sv0IWnDifxiik98YS10x5g9xix/view?usp=sharing]
