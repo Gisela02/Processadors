@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Informe_ProyectoPD.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="div-style%22text-align-center-%22-procesadores-digitales-div"><div style="text-align: center "> Procesadores Digitales </div></h1>
+<h1 id="div-style%22text-align-justify-%22-proyecto-siri-de-la-temperatura--humedad-con-webserver-ip-div"><div style="text-align: justify "> Proyecto Siri de la Temperatura &amp; Humedad con WebServer  IP  </div></h1>
+<h1 id="1-miembros-del-proyecto">1. Miembros del proyecto</h1>
+<h3 id="div-style%22text-align-justify-%22-gisela-le%C3%B3n-pip%C3%B3-div"><div style="text-align: justify "> Gisela León Pipó  </div></h3>
+<h3 id="div-style%22text-align-justify-%22-joan-marc-fuentes-soler-div"><div style="text-align: justify "> Joan Marc Fuentes Soler  </div></h3>
+<h1 id="2-definici%C3%B3n-del-proyecto">2. Definición del proyecto</h1>
+<h3 id="div-style%22text-align-justify-%22-nuestro-proyecto-consiste-en-hacer-un-informe-por-voz-donde-nos-avisar%C3%A1-cada-hora-de-la-temperatura-ambiental-mediante-un-sensor-de-temperatura-la-hora-y-el-d%C3%ADa-adem%C3%A1s-podremos-visualizar-los-datos-por-un-display-y-el-servidor-nos-crea-una-p%C3%A1gina-web-con-toda-esta-informaci%C3%B3n-div"><div style="text-align: justify ">  Nuestro proyecto consiste en hacer un informe por voz donde nos avisará cada hora de la temperatura ambiental (mediante un sensor de temperatura), la hora y el día. Además, podremos visualizar los datos por un display y el servidor nos crea una página web con toda esta información. </div></h3>
+<h1 id="3-distribuci%C3%B3n-de-trabajo">3. Distribución de trabajo</h1>
+<h3 id="div-style%22text-align-justify-%22-en-este-proyecto-nos-hemos-distribuido-las-tareas-de-la-siguiente-manera-div"><div style="text-align: justify "> En este proyecto nos hemos distribuido las tareas de la siguiente manera: </div></h3>
+<h3 id="div-style%22text-align-justify-%22-gisela-se-ha-encargado-de-generar-un-servidor-web-mediante-una-direcci%C3%B3n-ip-para-mostrar-la-temperatura--humedad-mediante-el-sensor-sht31-d-y-con-la-fecha-y-hora-local-de-espa%C3%B1a-gmt-2-div"><div style="text-align: justify "> Gisela se ha encargado de generar un servidor web mediante una dirección IP para mostrar la Temperatura &amp; Humedad mediante el sensor SHT31-D y con la fecha y hora local de España GMT +2. </div></h3>
+<h3 id="div-style%22text-align-justify-%22-joan-marc-se-ha-encargado-de-hacer-la-distribuci%C3%B3n-de-la-pantalla-del-display-ssd1306-con-su-informaci%C3%B3n-correspondiente-y-por-%C3%BAltimo-sacar-la-informaci%C3%B3n-de-la-temperatura--humedad-mediante-un-audio-del-altavoz-div"><div style="text-align: justify ">  Joan-Marc se ha encargado de hacer la distribución de la pantalla del display SSD1306 con su información correspondiente y por último sacar la información de la Temperatura &amp; Humedad mediante un audio del altavoz. </div></h3>
+<div style="page-break-after: always;"></div>
+<h1 id="4-diagrama-de-bloques">4. Diagrama de bloques</h1>
+<h3 id="div-style%22text-align-justify-%22-en-las-siguientes-imagenes-podemos-observar-los-diagramas-de-bloques-de-nuestro-proyecto-y-que-elementos-tenemos-y-como-estan-conectado-entre-si-div"><div style="text-align: justify "> En las siguientes imagenes podemos observar los diagramas de bloques de nuestro proyecto y que elementos tenemos y como estan conectado entre si.  </div></h3>
+<p><img src="DiagramaDeBloques.png" alt="alt text"></p>
+<div style="page-break-after: always;"></div>
+<p><img src="DiagramaDeBloquesNew.png" alt="alt text"></p>
+<div style="page-break-after: always;"></div>
+<h1 id="5-funcionamiento">5. Funcionamiento</h1>
+<h3 id="div-style%22text-align-justify-%22-primero-de-todo-hay-que-a%C3%B1adir-las-librer%C3%ADas-y-extensiones-necesarias-div"><div style="text-align: justify "> Primero de todo hay que añadir las librerías y extensiones necesarias: </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;Arduino.h&gt;</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;NTPClient.h&gt;          // Liberia Fecha i Hora Local</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;WiFiUdp.h&gt;            // Liberia Fecha i Hora Local</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;WiFi.h&gt;               // Liberia Fecha i Hora Local</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"AsyncTCP.h"</span>           <span class="hljs-comment">// Web Server </span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;DNSServer.h&gt;          // Web Server </span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"ESPAsyncWebServer.h"</span>  <span class="hljs-comment">// Web Server </span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;Wire.h&gt;               // Only needed for Arduino 1.6.5 and earlier</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"Audio.h"</span>              <span class="hljs-comment">// Libreria Audio ESP32-audioI2S-master </span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"ClosedCube_SHT31D.h"</span>  <span class="hljs-comment">// Liberia Sensor de Temperatura  SHT31-D</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"SSD1306Wire.h"</span>        <span class="hljs-comment">// Liberia Display SSD1306</span></span>
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-seguidamente-definimos-las-variables-en-primer-lugar-definimos-los-pines-io-esp32-que-conectan-al-altavoz-div"><div style="text-align: justify "> Seguidamente definimos las variables: En primer lugar, definimos los pines I/O ESP32 que conectan al altavoz </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_DOUT      25</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_BCLK      27</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> I2S_LRC       26</span>
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-despu%C3%A9s-definimos-la-variable-audio-del-tipo-audio-div"><div style="text-align: justify "> Después definimos la variable audio del tipo Audio: </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-built_in">Audio</span> audio;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-para-conectarnos-a-la-red-hay-que-reemplazar-el-nombre-en-cada-caso-div"><div style="text-align: justify "> Para conectarnos a la red (hay que reemplazar el nombre en cada caso): </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-keyword">String</span> ssid = <span class="hljs-string">"HUAWEI P30 lite"</span>;
+    <span class="hljs-keyword">String</span> password = <span class="hljs-string">"berta056"</span>;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-las-del-web-server-div"><div style="text-align: justify "> Las del Web Server </div></h3>
+<pre class="hljs"><code><div>    DNSServer dnsServer;
+    <span class="hljs-function">AsyncWebServer <span class="hljs-title">server</span><span class="hljs-params">(<span class="hljs-number">80</span>)</span></span>;
+</div></code></pre>
+<div style="page-break-after: always;"> </div>
+<h3 id="div-style%22text-align-justify-%22-el-display-div"><div style="text-align: justify "> El Display: </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function">SSD1306Wire <span class="hljs-title">display</span><span class="hljs-params">(<span class="hljs-number">0x3c</span>, SDA, SCL)</span></span>;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-el-sensor-de-temperatura-y-humedad-div"><div style="text-align: justify "> El sensor de temperatura y humedad: </div></h3>
+<pre class="hljs"><code><div>    ClosedCube_SHT31D sht31 = ClosedCube_SHT31D();
+    SHT31D result;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-el-d%C3%ADa-y-hora-local-div"><div style="text-align: justify "> El día y hora local:  </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-built_in">WiFiUDP</span> ntpUDP;
+    <span class="hljs-function">NTPClient <span class="hljs-title">timeClient</span><span class="hljs-params">(ntpUDP)</span></span>;
+    <span class="hljs-keyword">String</span> formattedDate;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-variables-de-la-temperatura-y-la-humedaddiv"><div style="text-align: justify "> Variables de la temperatura y la humedad</div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-keyword">float</span> temp;
+    <span class="hljs-keyword">float</span> humd;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-3-contadores-que-usaremos-m%C3%A1s-adelante-div"><div style="text-align: justify "> 3 Contadores que usaremos más adelante:  </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-keyword">int</span> contAudio=<span class="hljs-number">0</span>; <span class="hljs-keyword">int</span> mult=<span class="hljs-number">0</span>; <span class="hljs-keyword">int</span> cont=<span class="hljs-number">0</span>;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-las-dos-tareas-que-vamos-a-usar-div"><div style="text-align: justify "> Las dos tareas que vamos a usar:  </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AudioLoopTask</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *parameter)</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MainTHTask</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *parameter)</span></span>;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-las-tres-funciones-que-realizaremos-div"><div style="text-align: justify "> Las tres funciones que realizaremos:  </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AudioOut</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OutTerminal</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OutDisplay</span><span class="hljs-params">()</span></span>;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-una-vez-definidas-todas-las-variables-definimos-dos-funciones-de-lectura-de-la-temperatura-y-de-la-humedad-readsht31temperature-y-readsht31humidity-div"><div style="text-align: justify "> Una vez definidas todas las variables, definimos dos funciones de lectura de la temperatura y de la humedad readSHT31Temperature() y readSHT31Humidity(). </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">String</span> <span class="hljs-title">readSHT31Temperature</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">float</span> t = result.t;    
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">String</span>(t);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">String</span> <span class="hljs-title">readSHT31Humidity</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">float</span> h = result.rh;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">String</span>(h);
+    }
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-a-continuaci%C3%B3n-creamos-la-p%C3%A1gina-webserver-con-el-c%C3%B3digo-obtenido-en-las-pr%C3%A1cticas-de-laboratorio-en-la-que-podremos-ver-la-temperatura--humedad-pero-tambi%C3%A9n-la-fecha--hora-local-en-este-caso-ser%C3%A1-la-de-espa%C3%B1a-gmt-2-div"><div style="text-align: justify "> A continuación creamos la página WebServer con el código obtenido en las prácticas de laboratorio en la que podremos ver la Temperatura &amp; Humedad, pero también la Fecha &amp; Hora Local, en este caso será la de España GMT +2. </div></h3>
+<h3 id="div-style%22text-align-justify-%22-primero-definimos-el-estilo-de-las-letras-la-alineaci%C3%B3n-el-tama%C3%B1odiv"><div style="text-align: justify "> Primero definimos el estilo de las letras, la alineación, el tamaño...</div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-comment">// Pagina WebServer</span>
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> index_html[] PROGMEM = R<span class="hljs-string">"rawliteral(
+    &lt;!DOCTYPE HTML&gt;&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta name="</span>viewport<span class="hljs-string">" content="</span><span class="hljs-built_in">width</span>=device-<span class="hljs-built_in">width</span>, initial-scale=<span class="hljs-number">1</span><span class="hljs-string">"&gt;
+    &lt;link rel="</span>stylesheet<span class="hljs-string">" href="</span>https:<span class="hljs-comment">//use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"&gt;</span>
+    &lt;style&gt;
+        html {
+        font-family: Arial;
+        <span class="hljs-built_in">display</span>: <span class="hljs-keyword">inline</span>-block;
+        margin: <span class="hljs-number">0</span>px <span class="hljs-keyword">auto</span>;
+        <span class="hljs-built_in">text</span>-align: center;
+        }
+        h2 { font-<span class="hljs-built_in">size</span>: <span class="hljs-number">3.0</span>rem; }
+        p { font-<span class="hljs-built_in">size</span>: <span class="hljs-number">3.0</span>rem; }
+        .units { font-<span class="hljs-built_in">size</span>: <span class="hljs-number">1.2</span>rem; }
+        .sht31-labels{
+        font-<span class="hljs-built_in">size</span>: <span class="hljs-number">1.5</span>rem;
+        vertical-align:middle;
+        padding-bottom: <span class="hljs-number">15</span>px;
+        }
+    &lt;/style&gt;
+    &lt;/head&gt;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-luego-hay-que-crear-lo-que-ser%C3%ADa-el-cuerpo-con-toda-la-informaci%C3%B3n-que-queremos-poner-en-la-p%C3%A1gina-web-div"><div style="text-align: justify "> Luego, hay que crear lo que sería el “cuerpo”, con toda la información que queremos poner en la página web. </div></h3>
+<h3 id="div-style%22text-align-justify-%22ponemos-un-t%C3%ADtulo-de-cabecera-div"><div style="text-align: justify ">Ponemos un título de cabecera </div></h3>
+<pre class="hljs"><code><div>    &lt;body&gt;
+    &lt;h2&gt;INFORME DIARIO DE TEMPERATURA&lt;/h2&gt;
+    &lt;p&gt;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-la-siguiente-parte-nos-permite-acceder-a-un-reloj-digital-sacado-de-un-enlace-de-internet-div"><div style="text-align: justify "> La siguiente parte nos permite acceder a un reloj digital sacado de un enlace de internet.  </div></h3>
+<pre class="hljs"><code><div>    &lt;iframe <span class="hljs-built_in">width</span>=<span class="hljs-string">"550"</span> <span class="hljs-built_in">height</span>=<span class="hljs-string">"325"</span> src=<span class="hljs-string">"https://reloj-alarma.com/embed/#theme=0&amp;m=0&amp;showdate=1"</span> frameborder=<span class="hljs-string">"0"</span> allowfullscreen&gt;
+    &lt;/iframe&gt;
+    &lt;/p&gt;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-los-siguientes-dos-p%C3%A1rrafos-son-para-poner-los-datos-de-la-temperatura-y-la-humedad-div"><div style="text-align: justify "> Los siguientes dos párrafos son para poner los datos de la temperatura y la humedad. </div></h3>
+<pre class="hljs"><code><div>    &lt;p&gt;
+        &lt;i <span class="hljs-class"><span class="hljs-keyword">class</span>="<span class="hljs-title">fas</span> <span class="hljs-title">fa</span>-<span class="hljs-title">thermometer</span>-<span class="hljs-title">half</span>" <span class="hljs-title">style</span>="<span class="hljs-title">color</span>:</span>#<span class="hljs-number">059e8</span>a;<span class="hljs-string">"&gt;&lt;/i&gt;
+        &lt;span class="</span>sht31-labels<span class="hljs-string">"&gt;Temperatura&lt;/span&gt;
+        &lt;span id="</span>temperature<span class="hljs-string">"&gt;%TEMPERATURE%&lt;/span&gt;
+        &lt;sup class="</span>units<span class="hljs-string">"&gt;&amp;deg;C&lt;/sup&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;i class="</span>fas fa-tint<span class="hljs-string">" style="</span>color:#<span class="hljs-number">00</span>add6;<span class="hljs-string">"&gt;&lt;/i&gt;
+        &lt;span class="</span>sht31-labels<span class="hljs-string">"&gt;Humedad&lt;/span&gt;
+        &lt;span id="</span>humidity<span class="hljs-string">"&gt;%HUMIDITY%&lt;/span&gt;
+        &lt;sup class="</span>units<span class="hljs-string">"&gt;%&lt;/sup&gt;
+    &lt;/p&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+    setInterval(function ( ) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 &amp;&amp; this.status == 200) {
+        document.getElementById("</span>temperature<span class="hljs-string">").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("</span>GET<span class="hljs-string">", "</span>/temperature<span class="hljs-string">", true);
+    xhttp.send();
+    }, 10000 ) ;
+    
+    setInterval(function ( ) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 &amp;&amp; this.status == 200) {
+        document.getElementById("</span>humidity<span class="hljs-string">").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("</span>GET<span class="hljs-string">", "</span>/humidity<span class="hljs-string">", true);
+    xhttp.send();
+    }, 10000 ) ;
+    &lt;/script&gt;
+    &lt;/html&gt;)rawliteral"</span>;
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-la-p%C3%A1gina-web-quedar%C3%ADa-entonces-de-la-siguiente-manera-div"><div style="text-align: justify "> La página web quedaría entonces de la siguiente manera: </div></h3>
+<p><img src="WebServer.png" alt="alt text"></p>
+<h3 id="div-style%22text-align-justify-%22-una-vez-generado-toda-la-p%C3%A1gina-web-tenemos-que-remplazar-los-valores-con-la-sht31-d-div"><div style="text-align: justify "> Una vez generado toda la página web tenemos que remplazar los valores con la SHT31-D.  </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">String</span> <span class="hljs-title">processor</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">String</span>&amp; var)</span></span>{
+        <span class="hljs-keyword">if</span>(var == <span class="hljs-string">"TEMPERATURE"</span>){ <span class="hljs-keyword">return</span> readSHT31Temperature(); }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(var == <span class="hljs-string">"HUMIDITY"</span>){ <span class="hljs-keyword">return</span> readSHT31Humidity(); }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">String</span>();
+    }
+</div></code></pre>
+<div style="page-break-after: always;"> </div>
+<h3 id="div-style%22text-align-justify-%22-ahora-en-el-setup-inicializamos-nuestro-serial-a-la-velocidad-correspondiente-a-la-placa-esp32-el-display-el-sensor-y-nos-conectamos-a-la-wifi-tanto-para-la-p%C3%A1gina-web-como-la-fecha-y-hora-local-div"><div style="text-align: justify "> Ahora, en el setup, inicializamos nuestro Serial a la velocidad correspondiente a la placa ESP32, el display, el sensor y nos conectamos a la wifi tanto para la página web como la fecha y hora local. </div></h3>
+<h3 id="div-style%22text-align-justify-%22-a-continuaci%C3%B3n-creamos-dos-tareas-en-cada-una-de-las-cpu-de-la-placa-para-separar-nuestras-dos-tareas-el-audio-y-la-informaci%C3%B3n-del-sensor-de-temperatura--humedad-div"><div style="text-align: justify "> A continuación creamos dos Tareas en cada una de las CPU de la placa para separar nuestras dos tareas, el audio y la información del sensor de Temperatura &amp; Humedad. </div></h3>
+<ul>
+<li>La tarea AudioLoopTask (CPU 0)</li>
+<li>La tarea MainTHTask (CPU 1)</li>
+</ul>
+<pre class="hljs"><code><div>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">begin</span>(<span class="hljs-number">115200</span>);
+        <span class="hljs-built_in">Wire</span>.<span class="hljs-built_in">begin</span>();
+        <span class="hljs-comment">// Initialising the UI will init the display too.</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">" "</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"ClosedCube SHT3X-D Periodic Mode Example"</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"supports SHT30-D, SHT31-D and SHT35-D"</span>);
+        sht31.<span class="hljs-built_in">begin</span>(<span class="hljs-number">0x44</span>); <span class="hljs-comment">// I2C address: 0x44 or 0x45</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Serial #"</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(sht31.readSerialNumber());
+        <span class="hljs-keyword">if</span> (sht31.periodicStart(SHT3XD_REPEATABILITY_HIGH, SHT3XD_FREQUENCY_10HZ) != SHT3XD_NO_ERROR{
+            <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"[ERROR] Cannot start periodic mode"</span>);
+        }
+        <span class="hljs-built_in">display</span>.init();
+        <span class="hljs-built_in">display</span>.flipScreenVertically();
+        <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_10);
+        <span class="hljs-built_in">WiFi</span>.<span class="hljs-built_in">disconnect</span>();
+        <span class="hljs-built_in">WiFi</span>.mode(WIFI_STA);
+        <span class="hljs-built_in">WiFi</span>.<span class="hljs-built_in">begin</span>(ssid.c_str(), password.c_str());
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Conectando..."</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(ssid);
+        <span class="hljs-keyword">while</span> (<span class="hljs-built_in">WiFi</span>.status() != WL_CONNECTED) <span class="hljs-built_in">delay</span>(<span class="hljs-number">1500</span>);
+</div></code></pre>
+<div style="page-break-after: always;"> </div>  
+<pre class="hljs"><code><div>        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"."</span>);
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">WiFi</span>.status());
+        audio.setPinout(I2S_BCLK, I2S_LRC, I2S_DOUT);
+        audio.setVolume(<span class="hljs-number">21</span>); <span class="hljs-comment">// 0...21</span>
+
+        <span class="hljs-comment">// Print ESP32 Local IP Address</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">WiFi</span>.<span class="hljs-built_in">localIP</span>());
+        timeClient.<span class="hljs-built_in">begin</span>();
+        timeClient.setTimeOffset(<span class="hljs-number">7200</span>);
+        <span class="hljs-comment">// Route for root / web page</span>
+        server.on(<span class="hljs-string">"/"</span>, HTTP_GET, [](AsyncWebServerRequest *request){
+            request-&gt;send_P(<span class="hljs-number">200</span>, <span class="hljs-string">"text/html"</span>, index_html, processor);
+        });
+        server.on(<span class="hljs-string">"/temperature"</span>, HTTP_GET, [](AsyncWebServerRequest *request){
+            request-&gt;send_P(<span class="hljs-number">200</span>, <span class="hljs-string">"text/plain"</span>, readSHT31Temperature().c_str());
+        });
+        server.on(<span class="hljs-string">"/humidity"</span>, HTTP_GET, [](AsyncWebServerRequest *request){
+            request-&gt;send_P(<span class="hljs-number">200</span>, <span class="hljs-string">"text/plain"</span>, readSHT31Humidity().c_str());
+        });
+        xTaskCreatePinnedToCore(
+            AudioLoopTask, <span class="hljs-comment">/* Task function. */</span>
+            <span class="hljs-string">"AudioLoopTask"</span>, <span class="hljs-comment">/* name of task. */</span>
+            <span class="hljs-number">10000</span>, <span class="hljs-comment">/* Stack size of task */</span>
+            <span class="hljs-literal">NULL</span>, <span class="hljs-comment">/* parameter of the task */</span>
+            <span class="hljs-number">1</span>, <span class="hljs-comment">/* priority of the task */</span>
+            <span class="hljs-literal">NULL</span>,
+            <span class="hljs-number">0</span>); <span class="hljs-comment">/* Task handle to keep track of created task */</span>
+    
+        xTaskCreatePinnedToCore(
+            MainTHTask, <span class="hljs-comment">/* Task function. */</span>
+            <span class="hljs-string">"MainTHTask"</span>, <span class="hljs-comment">/* name of task. */</span>
+            <span class="hljs-number">10000</span>, <span class="hljs-comment">/* Stack size of task */</span>
+            <span class="hljs-literal">NULL</span>, <span class="hljs-comment">/* parameter of the task */</span>
+            <span class="hljs-number">1</span>, <span class="hljs-comment">/* priority of the task */</span>
+            <span class="hljs-literal">NULL</span>,
+            <span class="hljs-number">1</span>); <span class="hljs-comment">/* Task handle to keep track of created task */</span>
+        <span class="hljs-comment">// Start server</span>
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"Server begin"</span>);
+        server.<span class="hljs-built_in">begin</span>();
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"End server"</span>);
+        }
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-finalmente-acabamos-empezando-el-servidor-hasta-que-se-cierra-la-terminal-div"><div style="text-align: justify "> Finalmente, acabamos empezando el servidor hasta que se cierra la terminal. </div></h3>
+<div style="page-break-after: always;"> </div>
+<h3 id="div-style%22text-align-justify-%22-en-el-loop-solo-tenemos-un-delay-para-que-tenga-tiempo-de-procesar-la-siguiente-tarea-y-para-que-no-se-colapse-div"><div style="text-align: justify "> En el loop solo tenemos un delay para que tenga tiempo de procesar la siguiente tarea y para que no se colapse. </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">loop</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);  
+    }
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-en-la-tarea-audiolooptask-que-es-un-bucle-infinito-simplemente-hacemos-que-audio-se-repita-siempre-y-cuando-se-necesite-el-audio-div"><div style="text-align: justify "> En la tarea AudioLoopTask que es un bucle infinito, simplemente hacemos que audio se repita siempre y cuando se necesite el audio.   </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AudioLoopTask</span><span class="hljs-params">(<span class="hljs-keyword">void</span> * parameter )</span></span>{
+    <span class="hljs-comment">/* loop forever */</span>
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"this is another TaskLoopAudio"</span>);
+    <span class="hljs-keyword">for</span>(;;){
+        audio.loop();
+        <span class="hljs-built_in">delay</span>(<span class="hljs-number">1</span>);
+    }
+    <span class="hljs-comment">/* delete a task when finish,
+    this will never happen because this is infinity loop */</span>
+    vTaskDelete( <span class="hljs-literal">NULL</span> );
+    }
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-en-la-tarea-mainthtask-que-es-un-bucle-infinito--recibimos-la-hora-y-fecha-local-y-tambi%C3%A9n-las-variables-de-la-temperatura-y-la-humedad-del-sensor-div"><div style="text-align: justify "> En la tarea MainTHTask que es un bucle infinito , recibimos la hora y fecha local y también las variables de la temperatura y la humedad del sensor. </div></h3>
+<h3 id="div-style%22text-align-justify-%22-a-continuaci%C3%B3n-llamamos-diferentes-funciones-como-outterminal-outdisplay-y-audioout-que-son-los-que-sacan-la-informaci%C3%B3n-en-el-display-con-la-temperatura-y-humedad-correspondiente-en-ese-lugar-y-lo-mismo-pero-por-la-terminal-del-pc-y-por-%C3%BAltimo-saca-el-audio-correspondiente-en-el-momento-indicado-div"><div style="text-align: justify "> A continuación llamamos diferentes funciones como OutTerminal, OutDisplay y AudioOut que son los que sacan la información en el display con la temperatura y humedad correspondiente en ese lugar y lo mismo, pero por la terminal del PC y por último saca el audio correspondiente en el momento indicado. </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MainTHTask</span><span class="hljs-params">(<span class="hljs-keyword">void</span> * parameter )</span></span>{
+    <span class="hljs-comment">/* loop forever */</span>
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-string">"this is another TaskLoopTH"</span>);
+    <span class="hljs-keyword">for</span>(;;){
+        result = sht31.periodicFetchData();
+    <span class="hljs-keyword">while</span>(!timeClient.update()) { timeClient.forceUpdate(); }
+    <span class="hljs-built_in">delay</span>(<span class="hljs-number">100</span>);
+    <span class="hljs-comment">// The formattedDate comes with the following format:</span>
+    <span class="hljs-comment">// 16:00:13 28-05-2018  </span>
+    <span class="hljs-comment">// We need to extract date and time</span>
+    formattedDate = timeClient.getFormattedTime();
+    <span class="hljs-comment">//Serial.println(formattedDate);</span>
+
+    SHT31D result = sht31.periodicFetchData();
+    humd = result.rh;
+    temp = result.t;
+    <span class="hljs-built_in">delay</span>(<span class="hljs-number">300</span>);
+    OutTerminal();
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>();
+    OutDisplay(); 
+    <span class="hljs-built_in">delay</span>(<span class="hljs-number">700</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Analisis de temperatura número: "</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(contAudio);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>();
+
+    <span class="hljs-keyword">if</span>(contAudio == mult){
+        mult = mult+<span class="hljs-number">25</span>;
+        AudioOut();
+    }
+    contAudio++;
+    
+    }
+    <span class="hljs-comment">/* delete a task when finish,
+    this will never happen because this is infinity loop */</span>
+    vTaskDelete( <span class="hljs-literal">NULL</span> );
+    }
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-en-esta-funci%C3%B3n-outterminal-sacamos-la-informaci%C3%B3n-correspondiente-del-display-pero-por-la-terminal-div"><div style="text-align: justify "> En esta función OutTerminal sacamos la información correspondiente del display pero por la terminal.  </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OutTerminal</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"-------------------------------------\n"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Informe de la Temperatura y la humedad\n"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"\nDATA &amp; HORA LOCAL GMT +2\n"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(timeClient.getFormattedDate());
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Temperatura:"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(temp,<span class="hljs-number">1</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"ºC\n"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"Humedad:"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(humd,<span class="hljs-number">1</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"%\n"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">print</span>(<span class="hljs-string">"-------------------------------------"</span>);
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>();
+    <span class="hljs-built_in">delay</span>(<span class="hljs-number">1</span>);
+    }
+</div></code></pre>
+<div style="page-break-after: always;"> </div>
+<h3 id="div-style%22text-align-justify-%22-en-esta-funci%C3%B3n-outdisplay-sacamos-la-informaci%C3%B3n-correspondiente-por-el-display-div"><div style="text-align: justify "> En esta función OutDisplay sacamos la información correspondiente por el display. </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OutDisplay</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-comment">// Esborra la pantalla</span>
+    <span class="hljs-built_in">display</span>.<span class="hljs-built_in">clear</span>();
+    <span class="hljs-built_in">display</span>.setTextAlignment(TEXT_ALIGN_CENTER);
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_10);
+    <span class="hljs-built_in">display</span>.drawString(<span class="hljs-number">60</span>,<span class="hljs-number">0</span>,<span class="hljs-string">"INFORME DIARIO"</span>);
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_10);
+    <span class="hljs-built_in">display</span>.drawString(<span class="hljs-number">60</span>,<span class="hljs-number">10</span>, <span class="hljs-string">"TEMPERATURA : "</span> + <span class="hljs-keyword">String</span>(temp) +<span class="hljs-string">"ºC"</span>);
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_16);
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_10);
+    <span class="hljs-built_in">display</span>.drawString(<span class="hljs-number">60</span>, <span class="hljs-number">20</span>, <span class="hljs-string">"HUMEDAD : "</span> + <span class="hljs-keyword">String</span>(humd) +<span class="hljs-string">"%"</span>);
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_16);
+    <span class="hljs-built_in">display</span>.drawHorizontalLine(<span class="hljs-number">0</span>,<span class="hljs-number">32</span>,<span class="hljs-number">128</span>);
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_10);
+    <span class="hljs-built_in">display</span>.drawString(<span class="hljs-number">60</span>,<span class="hljs-number">34</span>,<span class="hljs-string">"D/H LOCAL GMT +2"</span>);
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_10);
+    <span class="hljs-built_in">display</span>.drawString(<span class="hljs-number">60</span>,<span class="hljs-number">44</span>,<span class="hljs-keyword">String</span>(timeClient.getFormattedDate()));
+    <span class="hljs-built_in">display</span>.setFont(ArialMT_Plain_10);
+    <span class="hljs-built_in">display</span>.drawString(<span class="hljs-number">60</span>,<span class="hljs-number">54</span>,<span class="hljs-string">"IP:"</span>+ <span class="hljs-built_in">WiFi</span>.<span class="hljs-built_in">localIP</span>().toString());
+    <span class="hljs-comment">// Escrivim el buffer a la pantalla </span>
+    <span class="hljs-built_in">display</span>.<span class="hljs-built_in">display</span>();
+    }
+</div></code></pre>
+<h3 id="div-style%22text-align-justify-%22-en-esta-funci%C3%B3n-audioout-sacamos-la-informaci%C3%B3n-correspondiente-por-el-altavoz-div"><div style="text-align: justify "> En esta función AudioOut sacamos la información correspondiente por el altavoz.  </div></h3>
+<pre class="hljs"><code><div>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AudioOut</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">char</span> <span class="hljs-built_in">buffer</span>[<span class="hljs-number">150</span>];
+        <span class="hljs-keyword">if</span>(cont!=<span class="hljs-number">0</span>){
+            audio.stopSong();
+        }
+        <span class="hljs-built_in">sprintf</span>(<span class="hljs-built_in">buffer</span>,<span class="hljs-string">"la temperatura ambiental es de %s grados centígrados y la humedad es de %s por ciento"</span>,<span class="hljs-keyword">String</span>(temp),<span class="hljs-keyword">String</span>(humd));
+        <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">buffer</span>);
+        audio.connecttospeech(<span class="hljs-built_in">buffer</span>,<span class="hljs-string">"es"</span>);
+        <span class="hljs-built_in">delay</span>(<span class="hljs-number">10000</span>);
+        <span class="hljs-keyword">if</span>(temp &gt; <span class="hljs-number">25.00</span>){
+            <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);
+            audio.connecttospeech(<span class="hljs-string">"Hace mucho calor. Le recomendamos encender el aire acondicionado"</span>,<span class="hljs-string">"es"</span>);
+            <span class="hljs-built_in">delay</span>(<span class="hljs-number">5000</span>);
+        }
+</div></code></pre>
+<div style="page-break-after: always;"> </div>
+<pre class="hljs"><code><div>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(temp &lt; <span class="hljs-number">15.00</span>){
+            <span class="hljs-built_in">delay</span>(<span class="hljs-number">1000</span>);
+            audio.connecttospeech(<span class="hljs-string">"Hace mucho frío. Le recomendamos encender la calefacción"</span>,<span class="hljs-string">"es"</span>);
+            <span class="hljs-built_in">delay</span>(<span class="hljs-number">5000</span>);
+        }
+        cont++;
+    }
+</div></code></pre>
+
+</body>
+</html>
